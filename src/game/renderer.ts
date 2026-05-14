@@ -13,19 +13,20 @@ export function renderMaze() {
             const tile = document.createElement("div");
             tile.classList.add("cell");
 
-            if (cell === "W")
+            if (cell === "W") {
                 tile.classList.add("wall");
-            else
+            }
+
+            if (cell === ".") {
                 tile.classList.add("path");
+            }
+
+            if (cell === "E") {
+                tile.classList.add("exit");
+            }
 
             if (gameState.player.row === rowIndex && gameState.player.col === columnIndex) {
                 tile.textContent = "P";
-                // tile.classList.add("player");
-            }
-
-            if (gameState.exit.row === rowIndex && gameState.exit.col === columnIndex) {
-                tile.textContent = "E";
-                tile.classList.add("exit");
             }
 
             grid.appendChild(tile);

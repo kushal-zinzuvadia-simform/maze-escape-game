@@ -8,14 +8,14 @@ export type Position = {
     col: number;
 };
 
-export const gameState: GameState = {
+export let gameState: GameState = {
     player: {
         row: 0,
         col: 0
     },
 
     exit: {
-        row: 4,
+        row: 3,
         col: 0
     }
 }
