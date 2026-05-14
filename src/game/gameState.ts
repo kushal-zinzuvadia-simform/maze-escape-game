@@ -1,12 +1,15 @@
-export interface GameState {
-    player: Position;
-    exit: Position;
-}
-
 export type Position = {
     row: number;
     col: number;
 };
+
+export interface GameState {
+    player: Position;
+    exit: Position;
+    time: number;
+    moves: number;
+    firstInput: boolean;
+}
 
 export let gameState: GameState = {
     player: {
@@ -17,5 +20,9 @@ export let gameState: GameState = {
     exit: {
         row: 3,
         col: 0
-    }
+    },
+
+    time: 50,
+    moves: 0,
+    firstInput: true
 }

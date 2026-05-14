@@ -2,11 +2,14 @@ import { maze } from "./maze";
 import { gameState } from "./gameState";
 
 const grid = document.querySelector(".maze") as HTMLElement;
+const moves = document.querySelector(".moves") as HTMLElement;
+const timer = document.querySelector(".timer") as HTMLElement;
 
 export function renderMaze() {
     grid.replaceChildren("");
+    const mazeRow = maze[0] as string[];
 
-    grid.style.gridTemplateColumns = `repeat(${maze[0].length}, 50px)`;
+    grid.style.gridTemplateColumns = `repeat(${mazeRow.length}, 50px)`;
 
     maze.forEach((row, rowIndex) => {
         row.forEach((cell, columnIndex) => {
@@ -32,4 +35,12 @@ export function renderMaze() {
             grid.appendChild(tile);
         });
     });
+}
+
+export function updateMoves() {
+    moves.textContent = `Moves: ${gameState.moves}`;
+}
+
+export function updateTimer() {
+    timer.textContent = `Time left: ${gameState.time} secs`;
 }
