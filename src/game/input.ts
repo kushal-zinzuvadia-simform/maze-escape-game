@@ -1,11 +1,5 @@
 import { movePlayer } from "./player";
 
-let firstInput = true;
-
-export function resetFirstInput() {
-    firstInput = true;
-}
-
 export function setupControls() {
     window.addEventListener("keydown", (e: KeyboardEvent) => {
         switch (e.key.toLowerCase()) {
