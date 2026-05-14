@@ -1,11 +1,21 @@
-import { resetFirstInput, setupControls } from "./game/input";
+import { setupControls } from "./game/input";
 import { renderMaze, updateMoves, updateTimer } from "./game/renderer";
 import { gameState } from "./game/gameState";
 import { maze } from "./game/maze";
 
 const restart = document.querySelector(".restart-btn") as HTMLElement;
 
-restart.addEventListener("click", initializeGame);
+restart.addEventListener("click", () => {
+  gameState.moves = 0;
+  updateMoves();
+
+  gameState.time = 50;
+  clearInterval(gameState.intervalId);
+  updateTimer();
+
+  gameState.firstInput = true;
+  initializeGame();
+});
 
 export function initializeGame() {
   initializeState();

@@ -9,6 +9,7 @@ export interface GameState {
     time: number;
     moves: number;
     firstInput: boolean;
+    intervalId: number;
 }
 
 export let gameState: GameState = {
@@ -24,5 +25,6 @@ export let gameState: GameState = {
 
     time: 50,
     moves: 0,
-    firstInput: true
+    firstInput: true,
+    intervalId: 0
 }

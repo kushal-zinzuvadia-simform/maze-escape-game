@@ -6,13 +6,13 @@ const timer = document.querySelector(".timer") as HTMLElement;
 let time = gameState.time;
 
 export function startTimer() {
-    let id = setInterval(() => {
+    gameState.intervalId = setInterval(() => {
         if (time === 0) {
             alert("Time is up.");
             time = 50;
             time++;
             initializeGame();
-            clearInterval(id);
+            clearInterval(gameState.intervalId);
         }
 
         time--;

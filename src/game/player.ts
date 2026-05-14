@@ -35,13 +35,16 @@ export function movePlayer(x: number, y: number) {
 
 function checkWin() {
     if (gameState.player.row === gameState.exit.row && gameState.player.col === gameState.exit.col) {
-        setTimeout(() => alert("You win!"), 200);
-        setTimeout(initializeGame, 100);
-
         gameState.moves = 0;
         updateMoves();
+
         gameState.time = 50;
+        clearInterval(gameState.intervalId);
         updateTimer();
+
         gameState.firstInput = true;
+
+        setTimeout(() => alert("You win!"), 200);
+        setTimeout(initializeGame, 100);
     }
 }
